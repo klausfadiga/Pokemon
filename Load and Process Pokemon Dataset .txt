@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+#loading data into pandas
+import pandas as pd
+df = pd.read_csv('pokemon_data.csv')
+print(df.head(3))
+print(df.tail(5))
+
+#read Headers
+print(df.columns)
+
+##read all rows in a specific column by name of column
+print(df['Name'])
+
+##read specific rows
+print(df.iloc[1])
+print(df.iloc[0:4])
+
+##read a specific location (R,C)
+print(df.iloc[2,1])
+
+#parse through each row
+for index, row in df.iterrows(): print(index, row)
+
+#parse through each row and just look at Name
+for index, row in df.iterrows(): print(index, row['Name'])
+
+#conditional statement to find rows where Type 1 is "Fire'
+df.loc[df['Type 1']=="Fire"]
+
+#summary statistics
+df.describe()
+
+df.sort_values('Name')
